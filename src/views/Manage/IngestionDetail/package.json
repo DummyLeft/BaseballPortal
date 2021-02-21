@@ -1,0 +1,6 @@
+{
+  "name": "IngestionDetail",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./IngestionDetail.js"
+}

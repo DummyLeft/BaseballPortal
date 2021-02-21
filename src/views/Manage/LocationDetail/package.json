@@ -1,0 +1,6 @@
+{
+  "name": "LocationDetail",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./LocationDetail.js"
+}
