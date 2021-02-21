@@ -15,24 +15,19 @@ export default {
       class: ''             // optional class names space delimited list for title item ex: "text-center"
     },
     {
-      name: '课程表',
-      url: '/manage/group',
+      name: '课程安排',
+      url: '/manage/schedule',
       icon: 'icon-layers',
     },
     {
       name: '学生列表',
-      url: '/manage/ingestion',
+      url: '/manage/student',
       icon: 'icon-pencil',
     },
     {
       name: '教师列表',
-      url: '/manage/field',
+      url: '/manage/teacher',
       icon: 'icon-tag',
-    },
-    {
-      name: 'Location',
-      url: '/manage/location',
-      icon: 'icon-location-pin',
     }
   ],
 };

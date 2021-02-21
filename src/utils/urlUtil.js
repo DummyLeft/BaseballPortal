@@ -1,14 +1,58 @@
 function getBasicUrl() {
-	// return `http://sisyphus.las.${process.env.REACT_APP_ENV}.hulu.com/`;
-	return 'http://localhost:8080/';
+	return 'http://8.140.119.113:8080/';
+	// return 'http://localhost:8080/';
+}
+
+export const getOverallCount = () => {
+	return getBasicUrl() + 'statics/overall';
+}
+
+export const getAllGradeSchedules = () => {
+	return getBasicUrl() + 'schedule/all';
 }
 
 export const getAllStudents = () => {
 	return getBasicUrl() + 'student/all';
 }
 
-export const getOverallCount = () => {
-	return getBasicUrl() + 'ingestion/overall_count';
+export const addStudent = (no, name, birthdate, grade) => {
+	return getBasicUrl() + 'student/add?no=' + no + '&name=' + name + '&birthdate=' + birthdate + '&grade=' + grade;
+}
+
+export const getStudentById = (id) => {
+	return getBasicUrl() + 'student/' + id;
+}
+
+export const deleteStudent = (id) => {
+	return getBasicUrl() + 'student/delete/' + id;
+}
+
+export const changeGrade = (id, grade) => {
+	return getBasicUrl() + 'student/change_grade/' + id + '/' + grade;
+}
+
+export const getAllTeachers = () => {
+	return getBasicUrl() + 'teacher/all';
+}
+
+export const addTeacher = (name, type='志愿者') => {
+	return getBasicUrl() + 'teacher/add?name=' + name + '&type=' + type;
+}
+
+export const getTeacherById = (id) => {
+	return getBasicUrl() + 'teacher/' + id;
+}
+
+export const enableTeacher = (id) => {
+	return getBasicUrl() + 'teacher/enable/' + id;
+}
+
+export const disableTeacher = (id) => {
+	return getBasicUrl() + 'teacher/disable/' + id;
+}
+
+export const deleteTeacher = (id) => {
+	return getBasicUrl() + 'teacher/delete/' + id;
 }
 
 export const getAllGroups = () => {

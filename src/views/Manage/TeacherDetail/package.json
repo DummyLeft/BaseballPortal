@@ -1,0 +1,6 @@
+{
+  "name": "TeacherDetail",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./TeacherDetail.js"
+}

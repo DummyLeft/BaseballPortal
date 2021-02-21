@@ -1,25 +1,24 @@
 import React from 'react';
 
 const Dashboard = React.lazy(() => import('./views/Dashboard'));
-const Group = React.lazy(() => import('./views/Manage/Group'));
-const GroupDetail = React.lazy(() => import('./views/Manage/GroupDetail'));
-const Ingestion = React.lazy(() => import('./views/Manage/Ingestion'));
+const Schedule = React.lazy(() => import('./views/Manage/Schedule'));
+const Student = React.lazy(() => import('./views/Manage/Student'));
+const StudentDetail = React.lazy(() => import('./views/Manage/StudentDetail'));
 const IngestionDetail = React.lazy(() => import('./views/Manage/IngestionDetail'));
-const Field = React.lazy(() => import('./views/Manage/Field'));
-const FieldDetail = React.lazy(() => import('./views/Manage/FieldDetail'));
+const Teacher = React.lazy(() => import('./views/Manage/Teacher'));
+const TeacherDetail = React.lazy(() => import('./views/Manage/TeacherDetail'));
 const Location = React.lazy(() => import('./views/Manage/Location'));
 const LocationDetail = React.lazy(() => import('./views/Manage/LocationDetail'));
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
 const routes = [
-  { path: '/', exact: true, name: 'Home' },
-  { path: '/dashboard', name: 'Dashboard', component: Dashboard },
-  { path: '/manage/group', exact: true, name: 'Group', component: Group},
-  { path: '/manage/group/detail/:id', name: 'GroupDetail', component: GroupDetail },
-  { path: '/manage/ingestion', exact: true, name: 'Ingestion', component: Ingestion},
-  { path: '/manage/ingestion/detail/:id', name: 'IngestionDetail', component: IngestionDetail },
-  { path: '/manage/field', exact: true, name: 'Field', component: Field},
-  { path: '/manage/field/detail/:id', name: 'FieldDetail', component: FieldDetail },
+  { path: '/', exact: true, name: '主页' },
+  { path: '/dashboard', name: '主页', component: Dashboard },
+  { path: '/manage/schedule', exact: true, name: '课程安排', component: Schedule},
+  { path: '/manage/student', exact: true, name: '学生列表', component: Student},
+  { path: '/manage/student/detail/:id', name: '学生个人信息', component: StudentDetail },
+  { path: '/manage/teacher', exact: true, name: '教师列表', component: Teacher},
+  { path: '/manage/teacher/detail/:id', name: '教师个人信息', component: TeacherDetail },
   { path: '/manage/location', exact: true, name: 'Location', component: Location },
   { path: '/manage/location/detail/:id', name: 'LocationDetail', component: LocationDetail },
 ];

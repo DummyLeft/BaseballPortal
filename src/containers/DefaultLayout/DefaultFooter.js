@@ -15,7 +15,7 @@ class DefaultFooter extends Component {
 
     return (
       <React.Fragment>
-        <span className="ml-auto">Powered by Audience Platform</span>
+        <span className="ml-auto">制作人 强棒天使队</span>
       </React.Fragment>
     );
   }
