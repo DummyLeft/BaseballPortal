@@ -1,5 +1,10 @@
 function getBasicUrl() {
-	return `http://sisyphus.las.${process.env.REACT_APP_ENV}.hulu.com/`;
+	// return `http://sisyphus.las.${process.env.REACT_APP_ENV}.hulu.com/`;
+	return 'http://localhost:8080/';
+}
+
+export const getAllStudents = () => {
+	return getBasicUrl() + 'student/all';
 }
 
 export const getOverallCount = () => {

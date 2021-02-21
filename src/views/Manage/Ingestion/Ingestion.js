@@ -5,40 +5,29 @@ import paginationFactory from 'react-bootstrap-table2-paginator';
 import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit';
 
 import { getCommonFormat } from '../../../utils/timeUtil';
-import { getAllIngestions } from '../../../utils/urlUtil';
+import { getAllStudents } from '../../../utils/urlUtil';
 
 const { SearchBar } = Search;
 
 const columns = [{
 	dataField: 'id',
-	text: 'ID',
+	text: '序号',
 	sort: true
 }, {
-	dataField: 'name',
-	text: 'Ingestion Name',
-	sort: true
-}, {
-	dataField: 'desc',
-	text: 'Description'
-}, {
-	dataField: 'source',
-	text: 'Source',
-	sort: true
-}, {
-	dataField: 'dest',
-	text: 'Destination',
-	sort: true
-}, {
-	dataField: 'interval',
-	text: 'Interval',
-	sort: true
-}, {
-  dataField: 'lastUpdateTime',
-  text: 'Last Update Time',
+  dataField: 'no',
+  text: '学号',
   sort: true
 }, {
-	dataField: 'status',
-	text: 'Status',
+	dataField: 'name',
+	text: '名字',
+	sort: true
+}, {
+	dataField: 'birthdate',
+	text: '生日',
+  sort: true
+}, {
+	dataField: 'grade',
+	text: '年级',
 	sort: true
 }];
 
@@ -65,19 +54,16 @@ class Ingestion extends Component {
 	}
 
 	loadData() {
-		let url = getAllIngestions();
+		let url = getAllStudents();
 		fetch(url).then(r => r.json()).then((res) => {
       let data = [];
-      res.ingestion_list.forEach(function(ingestion) {
+      res.forEach(function(student) {
         data.push({
-          id: ingestion.id,
-					name: ingestion.name,
-					desc: ingestion.description,
-					source: ingestion.source,
-					dest: ingestion.destination,
-					interval: ingestion.interval,
-          lastUpdateTime: ingestion.latestUpdateTime == null ? '' : getCommonFormat(new Date(ingestion.latestUpdateTime * 1000)),
-					status: ingestion.enabled ? 'enabled' : 'disabled'
+          id: student.id,
+          no: student.no,
+					name: student.name,
+					birthdate: student.birthdate,
+					grade: student.grade
         })
       });
       this.setState({
