@@ -1,6 +1,6 @@
 function getBasicUrl() {
-	// return 'http://8.140.119.113:8080/';
-	return 'http://localhost:8080/';
+	return 'http://8.140.119.113:8080/';
+	// return 'http://localhost:8080/';
 }
 
 export const getOverallCount = () => {
