@@ -4,7 +4,7 @@
 
 ``` bash
 # clone the repo
-$ git clone git@github.prod.hulu.com:AudiencePlatform/SisyphusPortal.git my-project
+$ git clone https://github.com/DummyLeft/BaseballPortal.git my-project
 
 # go into app's directory
 $ cd my-project
@@ -19,11 +19,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ### Deploy in development mode
 
 ``` bash
-# dev server  with hot reload at http://localhost.hulu.com:3000
+# dev server  with hot reload at http://localhost:3000
 $ REACT_APP_ENV=staging npm start
 ```
 
-Navigate to [http://localhost.hulu.com:3000](http://localhost.hulu.com:3000). The app will automatically reload if you change any of the source files.
+Navigate to [http://localhost:3000](http://localhost:3000). The app will automatically reload if you change any of the source files.
 
 ### Deploy in production mode
 
@@ -37,7 +37,7 @@ $ REACT_APP_ENV=staging npm run build
 $ BIND_PATH=3000 node app.js
 ```
 
-Navigate to [http://localhost.hulu.com:3000](http://localhost.hulu.com:3000).
+Navigate to [http://localhost:3000](http://localhost:3000).
 
 ## What's included
 
