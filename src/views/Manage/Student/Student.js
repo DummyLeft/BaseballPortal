@@ -36,7 +36,7 @@ const defaultSorted = [{
 }];
 
 function emptyIndication() {
-  return 'No data available.'
+  return '没有数据.'
 }
 
 class Student extends Component {

@@ -31,21 +31,14 @@ const defaultSorted = [{
 }];
 
 function emptyIndication() {
-  return 'No data available.'
+  return '没有数据.'
 }
 
 class Schedule extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			data: [{
-        grade: 1,
-        monday: 'a',
-        tuesday: 'b',
-        wednesday: 'c',
-        thursday: 'd',
-        friday: 'e'
-      }]
+			data: []
 		}
 	}
 

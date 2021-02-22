@@ -31,7 +31,7 @@ const defaultSorted = [{
 }];
 
 function emptyIndication() {
-  return 'No data available.'
+  return '没有数据.'
 }
 
 class Teacher extends Component {
@@ -178,7 +178,7 @@ class Teacher extends Component {
               								this.gotoDetailPage(row.id)
               							} 
               						}}
-              						pagination={ paginationFactory() }
+              						pagination={ paginationFactory({sizePerPageList: [{text: '10', value: 10}, {text: '25', value: 25}, {text: 'All', value: this.state.data.length}], sizePerPage: 25}) }
                           noDataIndication={ emptyIndication }
               						striped 
               						hover 

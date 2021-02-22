@@ -1,10 +1,30 @@
 function getBasicUrl() {
-	return 'http://8.140.119.113:8080/';
-	// return 'http://localhost:8080/';
+	// return 'http://8.140.119.113:8080/';
+	return 'http://localhost:8080/';
 }
 
 export const getOverallCount = () => {
 	return getBasicUrl() + 'statics/overall';
+}
+
+export const getProgressByDate = (date) => {
+	return getBasicUrl() + 'progress/query?date=' + date;
+}
+
+export const addProgress = (grade, subject, teacher, date, progress) => {
+	return getBasicUrl() + 'progress/add?grade=' + grade + '&subject=' + subject + '&teacher=' + teacher + '&date=' + date + '&progress=' + progress;
+}
+
+export const getPerformanceByDate = (date) => {
+	return getBasicUrl() + 'class_performance/query?date=' + date;
+}
+
+export const getStudentPerformance = (id) => {
+	return getBasicUrl() + 'class_performance/query_by_student?student_id=' + id;
+}
+
+export const addPerformance = (student, date, teacher, score, comment) => {
+	return getBasicUrl() + 'class_performance/add?student_id=' + student + '&date=' + date + '&teacher=' + teacher + '&score=' + score + '&comment=' + comment;
 }
 
 export const getAllGradeSchedules = () => {
