@@ -4,10 +4,9 @@ const Dashboard = React.lazy(() => import('./views/Dashboard'));
 const Schedule = React.lazy(() => import('./views/Manage/Schedule'));
 const Student = React.lazy(() => import('./views/Manage/Student'));
 const StudentDetail = React.lazy(() => import('./views/Manage/StudentDetail'));
-const IngestionDetail = React.lazy(() => import('./views/Manage/IngestionDetail'));
 const Teacher = React.lazy(() => import('./views/Manage/Teacher'));
 const TeacherDetail = React.lazy(() => import('./views/Manage/TeacherDetail'));
-const Location = React.lazy(() => import('./views/Manage/Location'));
+const Progress = React.lazy(() => import('./views/Manage/Progress'));
 const LocationDetail = React.lazy(() => import('./views/Manage/LocationDetail'));
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
@@ -19,7 +18,7 @@ const routes = [
   { path: '/manage/student/detail/:id', name: '学生个人信息', component: StudentDetail },
   { path: '/manage/teacher', exact: true, name: '教师列表', component: Teacher},
   { path: '/manage/teacher/detail/:id', name: '教师个人信息', component: TeacherDetail },
-  { path: '/manage/location', exact: true, name: 'Location', component: Location },
+  { path: '/manage/progress', exact: true, name: '课程进度', component: Progress },
   { path: '/manage/location/detail/:id', name: 'LocationDetail', component: LocationDetail },
 ];
 

@@ -1,6 +1,5 @@
 import React, { Component, lazy } from 'react';
 import { Button, ButtonGroup, ButtonToolbar, Card, CardBody, CardHeader, Col, FormGroup, Input, Label, Modal, ModalHeader, ModalBody, ModalFooter, Row } from 'reactstrap';
-import { CustomTooltips } from '@coreui/coreui-plugin-chartjs-custom-tooltips';
 import BootstrapTable from 'react-bootstrap-table-next';
 import paginationFactory from 'react-bootstrap-table2-paginator';
 import ToolkitProvider from 'react-bootstrap-table2-toolkit';
@@ -34,7 +33,8 @@ const defaultPerformanceSorted = [{
 
 const progressColumns = [{
   dataField: 'grade',
-  text: '年级'
+  text: '年级',
+  sort: true
 }, {
   dataField: 'subject',
   text: '学科'
@@ -177,11 +177,15 @@ class Dashboard extends Component {
   }
 
   savePerformance() {
-    Object.keys(this.state.students).filter(key => this.state.students[key].grade == this.state.curGrade).forEach(key => {
+    let asyncFetch = []
+    Object.keys(this.state.students).filter(key => this.state.students[key].grade === Number(this.state.curGrade)).forEach(key => {
       let url = addPerformance(key, new Date(this.state.curDate).getTime(), this.state.teachers[this.state.curTeacher], this.state.students[key].score, this.state.students[key].comment);
-      fetch(url).then(r => console.log(url));
-    })
-    this.performanceToggle();
+      asyncFetch.push(fetch(url));
+    });
+    Promise.all(asyncFetch).then(() => {
+      this.loadPerformanceData();
+      this.performanceToggle();
+    });
   }
 
   changeMode(mode) {
@@ -319,16 +323,16 @@ class Dashboard extends Component {
       <div className="animated fadeIn">
         <Row>
           <Col xs="12" sm="6" lg="3">
-            <Widget02 header={this.state.grades.toString()} mainText="年级数" icon="fa fa-clone" color="primary" variant="1" />
+            <Widget02 header={this.state.grades.toString()} mainText="年级数" icon="fa fa-institution" color="primary" variant="1" />
           </Col>
           <Col xs="12" sm="6" lg="3">
-            <Widget02 header={this.state.activeTeachers.toString() + ' / ' + this.state.totalTeachers.toString()} mainText="在校/所有 老师" icon="fa fa-pencil" color="info" variant="1" />
+            <Widget02 header={this.state.activeTeachers.toString() + ' / ' + this.state.totalTeachers.toString()} mainText="在校/所有 老师" icon="fa fa-graduation-cap" color="info" variant="1" />
           </Col>
           <Col xs="12" sm="6" lg="3">
-            <Widget02 header={this.state.voluteers.toString()} mainText="志愿者" icon="fa fa-tag" color="warning" variant="1" />
+            <Widget02 header={this.state.voluteers.toString()} mainText="志愿者" icon="fa fa-plane" color="warning" variant="1" />
           </Col>
           <Col xs="12" sm="6" lg="3">
-            <Widget02 header={this.state.totalStudents.toString()} mainText="学生数" icon="fa fa-map-marker" color="danger" variant="1" />
+            <Widget02 header={this.state.totalStudents.toString()} mainText="学生数" icon="fa fa-group" color="danger" variant="1" />
           </Col>
         </Row>
 
@@ -341,8 +345,8 @@ class Dashboard extends Component {
               <CardBody>
                 <Row>
                   <Col sm="5">
-                    <Button color="success" onClick={this.progressToggle}> 录入教学内容 </Button> {' '}
-                    <Button color="warning" onClick={this.performanceToggle}> 录入课堂表现 </Button>
+                    <Button color="success" onClick={this.performanceToggle}> 录入课堂表现 </Button> {' '}
+                    <Button color="warning" onClick={this.progressToggle}> 录入教学内容 </Button>
 
                     <Modal isOpen={this.state.progressModal} toggle={this.progressToggle} className={this.props.className}>
                       <ModalHeader toggle={this.progressToggle}>录入今日教学情况</ModalHeader>
@@ -440,7 +444,7 @@ class Dashboard extends Component {
                         </FormGroup>
 
                         {
-                          Object.keys(this.state.students).filter(key => this.state.students[key].grade == this.state.curGrade).map(key => 
+                          Object.keys(this.state.students).filter(key => this.state.students[key].grade === Number(this.state.curGrade)).map(key => 
                             <FormGroup key={key}>
                               <FormGroup row>
                                 <Label htmlFor="hf-score" sm={3}>{this.state.students[key].name}</Label>

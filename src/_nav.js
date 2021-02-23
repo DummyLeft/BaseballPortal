@@ -17,17 +17,22 @@ export default {
     {
       name: '课程安排',
       url: '/manage/schedule',
-      icon: 'icon-layers',
+      icon: 'icon-calendar',
+    },
+    { 
+      name: '课程进度',
+      url: '/manage/progress',
+      icon: 'icon-tag',
     },
     {
       name: '学生列表',
       url: '/manage/student',
-      icon: 'icon-pencil',
+      icon: 'icon-people',
     },
     {
       name: '教师列表',
       url: '/manage/teacher',
-      icon: 'icon-tag',
+      icon: 'icon-folder',
     }
   ],
 };

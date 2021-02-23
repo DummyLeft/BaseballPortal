@@ -1,6 +1,6 @@
 function getBasicUrl() {
-	return 'http://8.140.119.113:8080/';
-	// return 'http://localhost:8080/';
+	// return 'http://8.140.119.113:8080/';
+	return 'http://localhost:8080/';
 }
 
 export const getOverallCount = () => {
@@ -9,6 +9,10 @@ export const getOverallCount = () => {
 
 export const getProgressByDate = (date) => {
 	return getBasicUrl() + 'progress/query?date=' + date;
+}
+
+export const getProgressByGradeAndSubject = (grade, subject) => {
+	return getBasicUrl() + 'progress/query_by_grade_and_subject?grade=' + grade + '&subject=' + subject;
 }
 
 export const addProgress = (grade, subject, teacher, date, progress) => {
