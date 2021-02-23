@@ -35,6 +35,10 @@ export const getAllGradeSchedules = () => {
 	return getBasicUrl() + 'schedule/all';
 }
 
+export const addSchedule = (teacher_id, grade, day_of_week) => {
+	return getBasicUrl() + 'schedule/add?teacher_id=' + teacher_id + '&grade=' + grade + '&day_of_week=' + day_of_week;
+}
+
 export const getAllStudents = () => {
 	return getBasicUrl() + 'student/all';
 }
